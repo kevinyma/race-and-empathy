@@ -1,15 +1,13 @@
-The Race and Empathy Project Software Application README
--------------------------------------------------
+#The Race and Empathy Project Software Application README
 
-#SECTIONS
+##SECTIONS
 - Overview
 - Auto-uploading and what it means for making changes
 - Where to put images/audio files
 - How to change the order of audio tiles/delete/add tiles
 
 
-##Overview
-==========================================================
+###Overview
 The entire project is hosted in the folder "rrr". The name of this folder can be changed without anything happening to the web application.
 
 If any undesirable changes are made to the project, a backup version can be downloaded from https://github.com/kevinyma/race-and-empathy
@@ -18,8 +16,7 @@ Choose the "Clone or download" > "Download ZIP" option.
 
 
 
-##Auto-uploading and what it means for making changes
-==========================================================
+###Auto-uploading and what it means for making changes
 The project contains the file "sftp-config.json" which will cause any change to upload upon saving any file.
 
 This means any changes will be visible on the web app IMMEDIATELY.
@@ -32,8 +29,7 @@ To:
 
 
 
-##Where to put images/audio files
-==========================================================
+###Where to put images/audio files
 Instead of putting the image/audio files inside the project, we host them online, to improve the speed at which the web page loads.
 
 Upload the images and audio to your Google Drive or Dropbox and make sure they are shared with public.
@@ -42,15 +38,14 @@ Copy the links - we will use them in the next step.
 
 
 
-##How to change the order of audio tiles/delete/add tiles
-==========================================================
+###How to change the order of audio tiles/delete/add tiles
 Open the file "index.html"
 
 Look for or use CTRL-F: "gallery section"
 
 This is the part that contains all the audio tiles. An example of the code for a single audio tile:
 	
-~~~~
+~~~~html
 <div class="thumbnail fade_open">
     <div class="resource">
         <img src="https://dl.dropboxusercontent.com/u/102549580/Clip01.jpg" alt="clip01">

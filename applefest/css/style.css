@@ -1,0 +1,531 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: "proxima-nova", 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-size: 16px;
+}
+
+@font-face {
+    font-family: proxima-nova;
+    src: url(../fonts/ProximaNova.otf);
+}
+
+@font-face {
+    font-family: Gotham;
+    src: url(../fonts/Gotham-Medium.otf);
+}
+
+h1, li {
+font-family: Gotham, Helvetica;
+}
+
+a {
+   outline: 0;
+}
+
+body.about {
+  background: url("../images/aboutbanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+}
+
+body.schedule {
+  background: url("../images/schedulebanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+}
+
+body.directions {
+  background: url("../images/mapbanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+}
+
+body.pictures {
+  background: url("../images/picturesbanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+}
+
+body.contact {
+  background: url("../images/contactbanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+body.feedback {
+  background: url("../images/feedbackbanner.jpg") no-repeat fixed center;
+
+  background-size: cover;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -6em;
+}
+
+.footer, .push {
+	height: 5em;
+}
+
+.footer {
+	width: 100%;
+	background-color: #3b3737;
+	text-align: center;
+	color: #7a7a7a;
+	line-height: 5em;
+	clear: left;
+}
+
+.copyright {
+vertical-align: middle;
+}
+
+a {
+	color: #f51a0b;
+	text-decoration: none;
+}
+
+/**********************************INDEX************************************/
+
+html.index { 
+	background: url("../images/bg.jpg") no-repeat fixed center;
+
+	background-size: cover;
+}
+
+.index a:hover {
+	color: #f51a0b;
+}
+
+.navbar {
+	display: block;
+	padding: 0;
+	height: 130px;
+	width: 100%;
+	background-color: white;
+}
+
+.indextitle {
+	margin-top: 260px;
+	width: 100%;
+	text-align: center;
+}
+
+.indextitle h1 {
+	font-size: 76px;
+	color: white; 
+	line-height: 10px;
+}
+
+.indextitle h3 {
+	font-style: italic;
+	font-family: "Times New Roman", times;
+	font-weight: normal;
+	color: #dadada;
+	font-size: 27px;
+}
+
+.index a {
+	color: white;
+}
+
+.index ul {
+	padding: 0;
+	margin: auto;
+	height: 130px;
+	line-height: 130px;
+	text-align: center;
+	float: none;
+}
+
+.index li {
+	margin: 0 30px 0 30px;
+}
+
+.navbox {
+	width: 1000px;
+	margin: auto;
+}
+
+/******************************** NAVBAR ********************************/
+
+.navbar {
+	display: block;
+	padding: 0;
+	height: 130px;
+	width: 100%;
+	background-color: white;
+
+}
+
+li {
+	list-style: none;
+	display: inline;
+	font-weight: bold;
+	margin: 0 60px 0 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	height: 130px;
+	line-height: 130px;
+	float: right;
+	text-align: right;
+}
+
+.navbar a {
+	color: black;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	color: #f51a0b;
+}
+/**********************************EVERY PAGE CONTENT************************************/
+
+.banner {
+	width: 100%;
+	height: 200px;
+}
+
+.bannerimage {
+	position: fixed;
+}
+
+.contentBackground {
+	width: 100%;
+	min-height: 300px;
+	background-color: white;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	color: white; 
+}
+
+.title h1{
+	line-height: 300px;
+	font-size: 76px;
+}
+
+/*******************************ABOUT content*************************/
+
+.boxleft {
+	width: 325px;
+	float: left;
+	margin-top: 40px;
+	margin-left: 110px;
+}
+
+.boxright {
+	width: 440px;
+	float: left;
+	margin-left: 80px;
+}
+
+
+.aboutBox1 {
+	width: 100%;
+	min-height: 440px;
+	background-color: white;
+}
+.aboutBox1Content {
+	width: 1100px;
+	margin: auto;
+	display: block;
+}
+
+.aboutBox2{
+	width: 100%;
+	min-height: 360px;
+	background-color: #f4f4f4;
+}
+.aboutBox2Content {
+	width: 826px;
+	margin: auto;
+	display: block;
+}
+
+.aboutBox3 {
+	width: 100%;
+	background-color: white;
+		min-height: 500px;
+}
+.aboutBox3Content {
+	width: 1250px;
+	margin: auto;
+	display: block;
+}
+.boxleft3 {
+	width: 460px;
+	float: left;
+	margin-left: 180px;
+}
+.boxright3 {
+	width: 470px;
+	float: left;
+	margin-left: 100px;
+	margin-top: 80px;
+}
+
+h5 {
+	font-size: 40px;
+	font-weight: lighter;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h6 {
+	font-size: 15px;
+	font-weight: lighter;
+}
+
+/*******************************DIRECTIONS content*************************/
+
+
+.directionsBox {
+	width: 100%;
+	min-height: 800px;
+	background-color: white;
+}
+
+.directionsBoxContent {
+	width: 1112px;
+	margin: auto;
+}
+
+.directionsBox2 {
+	width: 100%;
+	min-height: 370px;
+	background-color: #f4f4f4;
+}
+
+.directionsBox2Content {
+	width: 800px;
+	margin: auto;
+}
+
+.parkingleft {
+float: left;
+width: 350px;
+margin-right: 100px;
+}
+
+.parkingright {
+float: left;
+width: 350px;
+}
+
+#map_canvas {
+width:1110px;
+height:400px;
+}
+
+
+/*******************************SCHEDULE content*************************/
+.schedule h2{
+line-height: 15px;
+}
+
+.schedulebox {
+	width: 1400px;
+	min-height: 700px;
+	margin: auto;
+}
+
+.schedulebox2 {
+	width: 700px;
+	min-height: 600px;
+	margin: auto;
+}
+
+.line {
+	position: absolute; 
+	margin-left: 79px;
+}
+
+.calendar {
+	z-index: 9;
+}
+
+.redcalendar {
+	z-index: 10;
+	display: none;
+}
+
+.three {
+position: absolute;
+margin-top: 30px;
+}
+
+.four {
+position: absolute;
+margin-top: 220px;
+}
+
+.five {
+position: absolute;
+margin-top: 410px;
+}
+
+.dateinfo {
+	position: absolute;
+	margin-left: 300px;
+	margin-top: 30px;
+	display: none;
+}
+
+.question {
+	position: absolute;
+	margin-left: 200px;
+	margin-top: -10px;
+	font-size: 30px;
+	color: #c5c5c5;
+}
+
+.time {
+	width: 100px;
+}
+
+.dateinfo a {
+	color: #f51a0b;
+}
+
+
+
+/*******************************CONTACT content*************************/
+
+.contactbox {
+	width: 600px;
+	display: block;
+	margin: auto;
+}
+
+.contactBackground {
+	min-height: 340px;
+	background-color: white;
+	width: 100%;
+}
+
+.talk {
+	float: left;
+	width: 250px;
+}
+
+.connect {
+	float: left;
+	width: 200px;
+	margin-left: 150px;
+}
+
+.contactbox a {
+	color: #f51a0b;
+}
+
+/*******************************PICTURES content*************************/
+
+.pictureBox {
+	width: 100%;
+	min-height: 800px;
+	background-color: white;
+}
+
+
+
+#slideshow {
+	margin:0 auto;
+	width:1040px;
+	height:263px;
+	background:transparent url(img/bg_slideshow.jpg) no-repeat 0 0;
+	position:relative;
+}
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:960px;
+  height:640px;
+  overflow:auto; 
+  position:relative;
+}
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:940px; 
+  height:640px;
+}
+
+.control {
+  display:block;
+  width:39px;
+  height:640px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+#leftControl {
+  top:0;
+  left:0;
+  background:url(../images/control_left.jpg) no-repeat 0 0;
+}
+#rightControl {
+  top:0;
+  right:0;
+  background:url(../images/control_right.jpg) no-repeat 0 0;
+}
+
+/************************FEEDBACK and HANDLE_FORM content************************/
+
+.feedbackBackground {
+	min-height: 1350px;
+	background-color: white;
+	width: 100%;
+}
+
+.handleformBackground {
+	min-height: 400px;
+	background-color: white;
+	width: 100%;
+}
+
+
+.feedbackbox {
+	width: 800px;
+	display: block;
+	margin: auto;
+}
+
+.feedbackquestion {
+	font-weight: bold;
+}
+
+th {
+	font-weight: normal;
+}
+
+.thanks {
+	text-align: center;
+}
+
+.returnedinformation {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.returnedinformation td {
+	border: 1px solid black;
+	padding: 5px;
+	width: 400px;
+}
+
+.error{
+color: red;
+}
+/**************slideshow built using Jonothan Snook's basic Jquery slideshow: http://snook.ca/archives/javascript/simplest-jquery-slideshow*******************/
+

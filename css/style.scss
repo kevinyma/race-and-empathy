@@ -1,0 +1,520 @@
+/**********SCSS SOUP for the EMPATHETICALLY MADE EMPATHY APP**********/
+
+$width_W: 400px;
+$margin_W: 5px;
+$button_width_W: ($width_W - (3 * $margin_W))/4;
+$button_height_W: 130px; 
+$pos1_W: 0px;
+$pos2_W: $button_width_W + $margin_W;
+$pos3_W: 2*$button_width_W + 2*$margin_W;
+$pos4_W: 3*$button_width_W + 3*$margin_W;
+
+//_T abbrieviation is used for tablet specific widths (applies to retina as well)
+$width_T: 700px; 
+$margin_T: 10px;
+$button_width_T: ($width_T - (3 * $margin_T))/4;
+$button_height_T: 200px; 
+$pos1_T: 0px;
+$pos2_T: $button_width_T + $margin_T;
+$pos3_T: 2*$button_width_T + 2*$margin_T;
+$pos4_T: 3*$button_width_T + 3*$margin_T;
+
+//for web version
+$comment-padding: 15px;
+
+
+html, body {
+	margin: 0;
+	font-family:'Inconsolata';
+	font-size: 1.1em;
+}
+
+$thumbnail-margin: 1.4%;
+$thumbnail-tablet: (100%/3 - $thumbnail-margin);
+$thumbnail: (100%/4 - $thumbnail-margin);
+
+$_T: "not screen,
+(-webkit-min-device-pixel-ratio: 1.5), 
+(min--moz-device-pixel-ratio: 1.5), 
+(-o-min-device-pixel-ratio: 3/2), 
+(min-device-pixel-ratio: 1.5), 
+(min-resolution: 120dpi)";
+
+
+#wrapper {
+	margin: 0 auto;
+	margin-left: $thumbnail-margin;
+	padding-left: 50px;
+	padding-right: 50px;
+	width: 100%;
+}
+
+
+/**********styles for recording/listening module**********/
+
+#comment-button {
+	display: none;
+}
+
+#exit-button {
+	display: block;
+}
+
+#recording-label-web {
+	display: none!important;
+}
+
+#recording-label-tablet {
+	display: block!important;
+}
+
+@for $i from 1 through 4 {
+  .pos#{$i} { 
+  	left: (($button_width_W + $margin_W) * ($i - 1))
+  }
+}
+
+button {
+	position: absolute;
+	width: $button_width_W;
+	height: $button_height_W;
+	font-size: 1.4rem;
+	outline: 0;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	background: white;
+	p {
+		font-size: 0.8em;
+		height: 20px;
+		color: #b1b1b1;
+	}
+
+}
+
+.quarter_width {
+	width: $button_width_W;
+}
+
+.half_width {
+	width: $button_width_W*2 + $margin_W;
+}
+
+.threequarters_width {
+	width: $button_width_W*3 + $margin_W*2;
+}
+
+.full_width {
+	width: 100%;
+}
+
+.last_button {
+	margin-right: 0;
+}
+
+button:active {
+	outline: 0;
+}
+
+i {
+	font-size: 3em!important;
+	color: #b1b1b1;
+}
+
+
+#button_area {
+	margin-top: $margin_W;
+	height: $button_height_W;
+	#recording-mode {
+		position: absolute;
+		width: 100%;
+		margin-top: -50px;
+	}
+	#success-mode {
+		position: absolute;
+		width: 100%;
+		margin-top: -50px;
+	}
+	#recording_stop_btn {
+		width: 100%;
+	}
+}
+
+
+#image_area {
+	border-radius: 10px;
+	width: $width_W;
+	overflow: hidden;
+	height: 400px;
+	pointer-events: none;
+
+	#image {
+		height: 100%; 
+	}
+}
+
+.transform {
+  -webkit-transform: translateZ(0);
+  -webkit-transition: all 1s ease;  
+  -moz-transition: all 1s ease;  
+  -o-transition: all 1s ease;  
+  -ms-transition: all 1s ease;  
+  transition: all 1s ease;
+}
+
+.transform-active {
+	z-index: 1000;
+  	width: $width_W;
+  	left: 0;
+}
+
+.low_opacity {
+	opacity: 0.3;
+  -webkit-transform: translateZ(0);
+  -webkit-transition: all 0.6s ease;  
+  -moz-transition: all 0.6s ease;  
+  -o-transition: all 0.6s ease;  
+  -ms-transition: all 0.6s ease;  
+  transition: all 0.6s ease;
+}
+
+.low_opacity_active {
+	opacity: 1;
+}
+
+#recording_circle {
+	color: #e60000!important;
+}
+
+/**********styles for other modules**********/
+.about-section {
+  width: 700px;
+  line-height: 1.4em;
+  background: white;
+  border-radius: 10px;
+  padding: 40px; }
+
+.collaborators-section {
+ width: 700px;
+  line-height: 1.4em;
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+/*********************THUMBNAILS/GALLERY*********************/
+
+.thumbnail {
+		float: left;
+		width: $thumbnail-tablet;
+		margin-left: 0;
+		margin-right: $thumbnail-margin;
+		padding-top: 9px;
+		padding-bottom: 8px;
+		border-radius: 9px;
+	}
+	.last_thumbnail {
+		margin-right: $thumbnail-margin;
+	}
+	.last_thumbnail_margin {
+		margin-right: 0;
+	}
+	.resource {
+		overflow: hidden;
+		height: 296px;
+		border-radius: 10px;
+	}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.thumbnail_test {
+	margin-top: 20px;
+	height: 10px;
+	width: 10px;
+	overflow: hidden;
+}
+
+.thumbnail:hover {
+	background: #e4e4e4;
+	cursor: pointer;
+}
+
+.thumbnail:focus {
+	background: none;
+	outline: 0 !important;
+    border:0 none !important;
+}
+
+
+
+.resource img {
+	width: 100%;
+	height: auto;
+}
+
+.caption {
+	height: 30px;
+	display: none;
+}
+
+/*********************HEADER*********************/
+h1 {
+	font-size: 1.7em;
+	display: inline-block;
+	width: 90%;
+}
+
+.header {
+	margin-top: 50px;
+	margin-bottom:70px;
+	height: 30px;
+}
+.header-title {
+	
+}
+
+.header-nav {
+	text-align: right;
+    position: relative;
+    right: 25px;
+	top: -190%;
+}
+
+// buttons in nav
+#collaborators {
+  margin-left: 30px;
+}
+
+#about {
+  text-align: right;
+  text-anchor: end;
+  width: 0px;
+  height: 0px;
+  font-size: 1em;
+  width: 10%; 
+}
+
+
+/*********************POP UP styles*********************/
+
+#standalone {
+	transform: scale(0.8);
+}
+
+.popup_visible #standalone {
+	transform: scale(1);
+}
+
+#fade_background {
+	    opacity: 0.95!important;
+	    background-color: #e4e4e4!important;
+}
+
+#playbar {
+	display: none;
+}
+
+
+
+
+@media screen 
+  and (min-device-width: 900px)
+  {
+	#wrapper {
+			margin: 0 auto;
+			width: 80%;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+	.thumbnail {
+		float: left;
+		width: $thumbnail;
+		margin-left: 0;
+		margin-right: $thumbnail-margin;
+		padding-top: 9px;
+		padding-bottom: 8px;
+		border-radius: 9px;
+	}
+
+	.last_thumbnail {
+		margin-right: 0;
+	}
+
+	.resource {
+			overflow: hidden;
+			height: 27%;
+			border-radius: 10px;
+		}
+
+	//COMMENT STUFF
+
+	#recording_start_btn_own {
+		display: none;
+	}
+
+	#comment-button {
+		display: block;
+	}
+
+	#recording-label-web {
+		display: block!important;
+	}
+
+	#recording-label-tablet {
+		display: none!important;
+	}
+
+	.comment-box {
+		display: initial;
+		position: absolute;
+	    margin-top: 200px;
+	    height: 100px;
+	}
+
+
+	#comment-text-box {
+		resize: none;
+		padding: $comment-padding;
+		border-radius: 10px;
+		height: $button_height_W - $comment-padding * 2;
+		width: $button_width_W * 3 + $margin_W * 2 - $comment-padding * 2;
+		border: none;
+		font-size: 1.1em;
+		border: none;
+	}
+
+	#comment-text-box:focus {
+    	
+    	outline-color: transparent;
+  		outline-style: none;
+  		outline: 0;
+
+	}
+
+	textarea, input { outline: none; }
+
+	button {
+		font-size: 1rem;
+	}
+}
+
+@media #{$_T} {
+	button {
+		position: absolute;
+		width: $button_width_T;
+		height: $button_height_T;
+		font-size: 1.5rem;
+		outline: 0;
+		border-radius: 10px;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		background: white;
+		p {
+			font-size: 0.8em;
+			height: 20px;
+			color: #b1b1b1;
+		}
+	}
+
+	.quarter_width {
+		width: $button_width_T;
+	}
+
+	.half_width {
+		width: $button_width_T*2 + $margin_T;
+	}
+
+	.threequarters_width {
+		width: $button_width_T*3 + $margin_T*2;
+	}
+		@for $i from 1 through 4 {
+	  .pos#{$i} { 
+	  	left: (($button_width_T + $margin_T) * ($i - 1))
+	  }
+	}
+	#button_area {
+		margin-top: $margin_T;
+		height: $button_height_T;
+		#recording-mode {
+			position: absolute;
+			width: 100%;
+			margin-top: -50px;
+		}
+		#success-mode {
+			position: absolute;
+			width: 100%;
+			margin-top: -50px;
+		}
+		#recording_stop_btn {
+			width: 100%;
+		}
+	}
+	.transform-active {
+		z-index: 1000;
+	  	width: $width_T;
+	  	left: 0;
+	}
+
+	#comment-text-box {
+		resize: none;
+		padding: $comment-padding;
+		border-radius: 10px;
+		height: $button_height_T - $comment-padding * 2;
+		width: $button_width_T * 3 + $margin_T * 2 - $comment-padding * 2;
+		border: none;
+		font-size: 1.1em;
+		border: none;
+	}
+	#image_area {
+	border-radius: 10px;
+	width: $width_T;
+	overflow: hidden;
+	height: 700px;
+	pointer-events: none;
+
+	#image {
+		height: 100%; 
+	}
+}
+}
+
+// @media #{$_T} {
+//   h1 {
+//   	color: red;
+//   }
+// }
+
+
+// @media
+// not screen,
+// (-webkit-min-device-pixel-ratio: 1.5), 
+// (min--moz-device-pixel-ratio: 1.5), 
+// (-o-min-device-pixel-ratio: 3/2), 
+// (min-device-pixel-ratio: 1.5), 
+// (min-resolution: 120dpi) {
+// 	h1 {
+// 		color: red;
+// 	}
+// }
+
+
+
+.hp_slide{
+    width:100%;
+    background:white;
+    height:15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.hp_range{
+    width:0;
+    background: #b1b1b1;
+    height:15px;
+    border-radius: 10px;
+
+}

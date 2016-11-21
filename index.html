@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Cache-Control" content="no-store" />
+        <title>The Cornell Race and Empathy Project</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/rrr/lib/recorder/recorder.js"></script>
+        <script src="/rrr/lib/audio_utils.js"></script>
+<!--         <script src="/rrr/audiojs/audio.min.js"></script>
+ -->        <script src="/rrr/lib/rrr.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+        <style>
+            /*#playbar {
+            width:600px;
+            height:60px;
+            }*/
+        </style>
+        <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+        <script type="text/javascript">
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0056/5407.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+        </script>
+        
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67478010-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </head>
+    <body>
+        <!-- <button class="fade_open" >Open popup</button> -->
+        <!-- Wrapper div for the pop-up -->
+        <div id="fade">
+         <div class="collaborators-section">
+           PROJECT BY:
+            <BR>
+            Corinna Loeckenhoff and Anthony Burrow (Human Development) and Francois Guimbretiere (Information Science)
+            <br><br>
+            COLLABORATORS: 
+            <br>
+            Mann Library, Cornell Intergroup Dialogue Project, Kevin Ma, Dongwook Yoon
+            <br><br>
+            WITH SPECIAL THANKS TO:
+            <br>
+            Anthony Ong, Laura Huizinga, The Cornell Healthy Aging Laboratory
+            </div>
+            <div class="about-section">
+            Everyone has a story. The Cornell Race & Empathy Project aims to record, archive, and share the everyday stories of Cornellians that evoke racial empathy -  the ability to identify and understand the feelings of someone of a different race or ethnicity.
+            <br><br>
+            Accumulating evidence documents a racial empathy gap in American society. Conversations that bear on important social, political, and civic issues are often racially contentious and polarizing. Studies also show that interracial conversations can be experienced as stressful, which limits willingness to engage in them. Yet, powerful stories of racial empathy exist, and, when shared, can provide opportunities to celebrate one another’s joy and happiness, or lament suffering and grief.
+            <br><br>
+            This installation provides a space for conversation and invites you to listen to other’s stories, record a response, and share your own story. Responses will be archived online.
+            </div>
+            <div class="audio-section">
+            <div id="progress_area">
+                <div class="hp_slide">
+                    <div class="hp_range"></div>
+                </div>
+            </div>
+            <div id="image_area">
+                <img src="resource/white.png" id="image" onclick="pauseOrPlay()">
+            </div>
+            <div id="button_area">
+                <div id="playing">
+
+
+                     
+
+                    <button id="replay_button"
+                        class="pos1"
+                        onclick="replay()">
+                        <i class="fa fa-repeat" aria-hidden="true"></i>
+                        <p class="button_label">Replay</p>
+                    </button>
+                    <button disabled
+                        id="recording_start_btn"
+                        class="transform pos2 low_opacity record"
+                        onclick="setTimeout(clickRecordingStart, 600)"
+                        >
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                        <p class="button_label" id="recording-label-tablet">Respond to this Story</p>
+                        <p class="button_label" id="recording-label-web">Record Response</p>
+                    </button>
+                    <button disabled
+                        id="recording_start_btn_own"
+                        class="transform pos3 low_opacity record"
+                        onclick="setTimeout(recordOwnStory, 600)"
+                        >
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                        <p class="button_label">Record my own Story</p>
+                    </button>
+                    <button disabled
+                        id="comment-button"
+                        class="pos3 last_button low_opacity record-comment" 
+                        onclick="comment()">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <p class="button_label">Comment</p>
+                    </button>
+                    <button class="fade_close pos4 last_button" id="exit-button"
+                        onclick="backToMenu()">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        <p class="button_label">Exit to Menu</p>
+                    </button>
+
+
+
+                    
+                </div>
+
+
+
+                <div id="commenting">
+                    <textarea id="comment-text-box" placeholder="Type comment here..." ></textarea>
+                    <button class="pos4 last_button" id="submit-comment-button"
+                        onclick="submitComment()">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <p class="button_label">Submit comment</p>
+                    </button>
+                </div>
+
+                <div id="confirm-comment">
+                 <button id="full_width" class="full_width">
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                    <p>Your comment has been received!</p>
+                </button>
+                </div>
+
+
+                <div id="recording">
+                 <button id="recording_stop_btn" class="full_width" onclick="stopRecording()">
+                    <div id="recording-mode">
+                        <i class="fa fa-circle" id="recording_circle" aria-hidden="true"></i>
+                       <p>Now recording...click to stop</p>
+                    </div>
+                    <div id="success-mode">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <p>Finished recording</p>
+                    </div>
+                </button>
+                </div>
+                <div id="done-recording">
+                    <button 
+                        class="pos1 quarter_width"
+                        onclick="deleteRecording()">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                    <p>Delete this Recording</p>
+                    </button>
+                    <button 
+                        class="pos2 threequarters_width last"
+                        onclick="submitRecording()">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    <p>Submit to the Public Archive</p></button>
+                </div>
+               
+                <div id="confirm-delete">
+                <button id="full_width" class="full_width">
+                 <i class="fa fa-frown-o" aria-hidden="true"></i>
+                    <p>Recording deleted</p>
+                </button>
+                </div>
+               
+                <div id="confirm-submit">
+                <button id="full_width" class="full_width">
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                    <p>Thank you for submitting!</p>
+                </button>
+                </div>
+
+                <div id="back-to-menu">
+                <button id="full_width" class="fade_close close full_width">
+                     <i class="fa fa-times" aria-hidden="true"></i>
+                    <p>Back to Menu</p>
+                </button>
+                </div>
+                
+            </div>
+            <audio id="audio"
+                src="resource/test.wav"
+                preload="auto"
+                onended="audioComplete()"/>
+            </audio>
+        </div>
+        </div>
+    </div>
+
+
+
+  <!-- Gallery content -->
+            <div id="wrapper">
+
+                <div class="header">
+                    <div class="header-title">
+                        <h1 class="title">Listen to a story, and record your own...</h1>
+                    </div>
+                    <div class="header-nav">
+                        <a id="about" class="fade_open about">About</a>
+                        <a id="collaborators" class="fade_open collaborators">Collaborators</a>
+
+                    </div>
+                </div>
+                               
+                <div class="gallery-section">
+
+                    <div class="thumbnail fade_open">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip01.jpg" alt="clip01">
+                        </div>
+                        <div class="caption">
+                            <p>Looking around during a meeting</p>
+                        </div>
+                        <!-- <a href="resource/Clip01 - affirmative action.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip01%20-%20affirmative%20action.mp3"></a>
+                    </div>
+
+                    <div class="thumbnail fade_open">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip02.jpg" alt="clip02">
+                        </div>
+                        <div class="caption">
+                            <p>Can we speak the same language?</p>
+                        </div>
+                       <!--  <a href="resource/Clip02 - never thought about my whiteness.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip02%20-%20never%20thought%20about%20my%20whiteness.mp3"></a>
+                    </div>
+
+                    <div class="thumbnail fade_open last_thumbnail_tablet">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip03.jpg" alt="clip03">
+                        </div>
+                        <div class="caption">
+                            <p>Affirmative action</p>
+                        </div>
+<!--                         <a href="resource/Clip03 - being able to pass in both worlds.mp3"></a>
+ -->                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip03%20-%20being%20able%20to%20pass%20in%20both%20worlds.mp3"></a>
+                    </div>
+
+                    <div class="thumbnail fade_open last_thumbnail">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip04.jpg" alt="clip04">
+                        </div>
+                        <div class="caption">
+                            <p>At home in Spanglish</p>
+                        </div>
+                       <!--  <a href="resource/Clip04 - not beautiful - exotic.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip04%20-%20not%20beautiful%20-%20exotic.mp3"></a>
+                    </div>
+
+
+                    <div class="thumbnail fade_open">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip05.jpg" alt="clip05">
+                        </div>
+                        <div class="caption">
+                            <p>Stereotype threat</p>
+                        </div>
+                       <!--  <a href="resource/Clip05 - looking around during meeting.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip05%20-%20looking%20around%20during%20meeting.mp3"></a>
+                    </div>
+
+
+                    <div class="thumbnail fade_open last_thumbnail_tablet">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip06.jpg" alt="clip06">
+                        </div>
+                        <div class="caption">
+                            <p>Not beautiful, exotic</p>
+                        </div>
+                       <!--  <a href="resource/Clip06 - code-switching ... can we speak the same language.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip06%20-%20code-switching%20...%20can%20we%20speak%20the%20same%20language.mp3"></a>
+                    </div>
+
+
+                    <div class="thumbnail fade_open">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip07.jpg" alt="clip07">
+                        </div>
+                        <div class="caption">
+                            <p>Teaching about race</p>
+                        </div>
+                        <!-- <a href="resource/Clip07 - at home in spanglish.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip07%20-%20at%20home%20in%20spanglish.mp3"></a>
+                    </div>
+
+
+                    <div class="thumbnail fade_open last_thumbnail">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip08.jpg" alt="clip08">
+                        </div>
+                        <div class="caption">
+                            <p>Being able to pass in both worlds</p>
+                        </div>
+                       <!--  <a href="resource/Clip08 - cornell police, students reacting to national events.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip08%20-%20cornell%20police%2C%20students%20reacting%20to%20national%20events.mp3"></a>
+                    </div>
+
+
+                    <div class="thumbnail fade_open last_thumbnail_tablet">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip09.jpg" alt="clip09">
+                        </div>
+                        <div class="caption">
+                            <p>Overcoming preconcieved notions</p>
+                        </div>
+                       <!--  <a href="resource/Clip09- he's a racist, help him.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip09-%20he's%20a%20racist%2C%20help%20him.mp3"></a>
+                    </div>
+
+                    <div class="thumbnail fade_open" onclick="$('#playing').show();">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip10.jpg" alt="clip10">
+                        </div>
+                        <div class="caption">
+                            <p>Test</p>
+                        </div>
+                        <!-- <a href="resource/Clip10 - stereotype threat ... hispanic.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip10%20-%20stereotype%20threat%20...%20hispanic.mp3"></a>
+                    </div>
+
+                     <div class="thumbnail fade_open" onclick="$('#playing').show();">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip11.jpg" alt="clip11">
+                        </div>
+                        <div class="caption">
+                            <p>Test</p>
+                        </div>
+                       <!--  <a href="resource/Clip11 - overcoming preconceived notions.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip11%20-%20overcoming%20preconceived%20notions.mp3"></a>
+                    </div>
+
+                     <div class="thumbnail fade_open last_thumbnail last_thumbnail_tablet" onclick="$('#playing').show();">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/Clip12.jpg" alt="clip12">
+                        </div>
+                        <div class="caption">
+                            <p>Test</p>
+                        </div>
+                        <!-- <a href="resource/Clip12 -  teaching about race.mp3"></a> -->
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/Clip12%20-%20%20teaching%20about%20race.mp3"></a>
+                    </div>
+
+                     <div class="thumbnail fade_open thumbnail_test" onclick="$('#playing').show();">
+                        <div class="resource">
+                            <img src="https://dl.dropboxusercontent.com/u/102549580/white.png" alt="test">
+                        </div>
+                        <div class="caption">
+                            <p>Test</p>
+                        </div>
+                        <a href="https://dl.dropboxusercontent.com/u/102549580/test.wav"></a>
+                       
+                    </div>
+
+
+                
+                </div>
+
+               <!--  <h2>Database</h2>
+               
+                <button onclick="refreshDatabase()">Refresh</button>
+                <ul id="database_ul">
+    
+                </ul> -->
+                <canvas
+                id="playbar"
+                width="500"
+                height="10"></canvas> 
+                
+
+            </div>
+        </body>
+    </html>

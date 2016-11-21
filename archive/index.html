@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Archive</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/rrr/lib/recorder/recorder.js"></script>
+        <script src="/rrr/lib/audio_utils.js"></script>
+        <script src="/rrr/archive/lib/rrr_archive.js"></script>
+        <style>
+            #playbar {
+            width:500px;
+            height:10px;
+            }
+            html {
+                font-size: 1.3em;
+                padding: 50px;
+                font-family: 'Helvetica';
+            }
+            li {
+                list-style: none;
+                text-decoration: none;
+                padding: 0;
+                margin-bottom: 5px;
+                color: black;
+            }
+            ul { padding: 0; list-style-type: none; }
+            a {
+                color: black;
+            }
+            h1 {
+                font-weight: 200;
+                font-size: 1.2em;
+                border-bottom: 1px solid black;
+                margin-top: 100px;
+                margin-bottom: 10px;
+            }
+            .refresh {
+                margin-bottom: 100px;
+            }
+            .data {
+                margin-top: 50px;
+                -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                -moz-column-count: 3; /* Firefox */
+                column-count: 3;
+                font-weight: 100;
+            }
+            .play {
+                margin-left: 10px;
+            }
+            a:hover {
+                cursor: pointer;
+            }
+            canvas {
+                display: none;
+            }
+            audio {
+                width: 1000px;
+                font-size: 1.4em;
+            }
+            button {
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+
+    
+
+        <h1>The Cornell Race and Empathy Project: Archive</h1>
+        <!-- <h2>Recording</h2>
+        <button
+            id="recording_start_btn"
+            onclick="clickRecordingStart()">Start</button>
+        <button
+            id="recording_stop_btn"
+            onclick="clickRecordingStop()">Stop</button>
+        <h2>Replaying</h2> -->
+        <button onclick="refreshDatabase()" class="refresh">Refresh Database</button><br>
+        <audio id="audio" controls>
+        <source src="/rrr/resource/test.wav">
+        </audio>
+        <canvas
+        id="playbar"
+        width="500"
+        height="10"></canvas>
+
+        <br>
+        
+        <div class="data">
+        <ul id="database_ul">
+        </ul>
+        </div>
+    </body>
+</html>

@@ -6,7 +6,7 @@
 - Where to put images/audio files
 - How to change the order of audio tiles/delete/add tiles
 
-
+---------------------
 ###Overview
 The entire project is hosted in the folder "rrr". The name of this folder can be changed without anything happening to the web application.
 
@@ -15,7 +15,7 @@ If any undesirable changes are made to the project, a backup version can be down
 Choose the "Clone or download" > "Download ZIP" option.
 
 
-
+--------------------
 ###Auto-uploading and what it means for making changes
 The project contains the file "sftp-config.json" which will cause any change to upload upon saving any file.
 
@@ -28,7 +28,7 @@ To:
 "upload_on_save": false,
 
 
-
+---------------------
 ###Where to put images/audio files
 Instead of putting the image/audio files inside the project, we host them online, to improve the speed at which the web page loads.
 
@@ -37,7 +37,7 @@ Upload the images and audio to your Google Drive or Dropbox and make sure they a
 Copy the links - we will use them in the next step.
 
 
-
+---------------------
 ###How to change the order of audio tiles/delete/add tiles
 Open the file "index.html"
 
